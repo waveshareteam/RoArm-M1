@@ -1,0 +1,212 @@
+<?xml version="1.0"?>
+<robot name="physics">
+
+  <material name="gray">
+    <color rgba="0.8 0.8 0.8 1"/>
+  </material>
+ 
+  <material name="white">
+    <color rgba="1 1 1 1"/>
+  </material>
+
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://roarm/meshes/base.stl"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="gray"/>
+    </visual>
+  </link>
+  
+  <link name="l1_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://roarm/meshes/L1.stl"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 -0.062"/>
+      <material name="white"/>
+    </visual>
+  </link>
+
+  <link name="l2_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://roarm/meshes/L2.stl"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 -0.041051 -0.11574"/>
+      <material name="white"/>
+    </visual>
+  </link>
+
+  <link name="l3_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://roarm/meshes/L3.stl"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 -0.160452 -0.235141"/>
+      <material name="white"/>
+    </visual>
+  </link>
+ 
+  <link name="l4_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://roarm/meshes/L4.stl"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 -0.250907 -0.325596"/>
+      <material name="white"/>
+    </visual>
+  </link>
+  
+  <link name="l5_1_A_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://roarm/meshes/L5_1_A.stl"/>
+      </geometry>
+      <origin xyz="-0.003489 -0.311007 -0.358744" rpy="0 0 0"/>
+      <material name="white"/>
+    </visual>
+  </link>
+  
+  <link name="l5_1_B_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://roarm/meshes/L5_1_B.stl"/>
+      </geometry>
+      <origin xyz="-0.024489 -0.311007 -0.358744" rpy="0 0 0"/>
+      <material name="white"/>
+    </visual>
+  </link>
+  
+  <link name="l5_2_A_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://roarm/meshes/L5_2_A.stl"/>
+      </geometry>
+      <origin xyz="0.017511 -0.285551 -0.362001" rpy="0 0 0"/>
+      <material name="white"/>
+    </visual>
+  </link>
+
+  <link name="l5_2_B_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://roarm/meshes/L5_2_B.stl"/>
+      </geometry>
+      <origin xyz="-0.045489 -0.285551 -0.362001" rpy="0 0 0"/>
+      <material name="white"/>
+    </visual>
+  </link>
+
+  <link name="l5_3_A_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://roarm/meshes/L5_3_A.stl"/>
+      </geometry>
+      <origin xyz="0.039711 -0.304219 -0.347532" rpy="0 0 0"/>
+      <material name="white"/>
+    </visual>
+  </link>
+
+  <link name="l5_3_B_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://roarm/meshes/L5_3_B.stl"/>
+      </geometry>
+      <origin xyz="-0.067689 -0.304219 -0.347532" rpy="0 0 0"/>
+      <material name="white"/>
+    </visual>
+  </link>
+
+
+  
+
+  
+  
+  <joint name="base_to_L1" type="revolute">
+    <axis xyz="0 0 1"/>
+    <limit effort="1000.0" lower="-3.14" upper="3.14" velocity="0.5"/>
+    <parent link="base_link"/>
+    <child link="l1_link"/>
+    <origin xyz="0 0 0.062"/>
+  </joint>
+
+  <joint name="L1_to_L2" type="revolute">
+    <axis xyz="1 0 0"/>
+    <limit effort="1000.0" lower="-1.0467" upper="1.0467" velocity="0.5"/>
+    <parent link="l1_link"/>
+    <child link="l2_link"/>
+    <origin xyz="0 0.041051 0.0534"/>
+  </joint>
+
+  <joint name="L2_to_L3" type="revolute">
+    <axis xyz="1 0 0"/>
+    <limit effort="1000.0" lower="-2.7" upper="2.7" velocity="0.5"/>
+    <parent link="l2_link"/>
+    <child link="l3_link"/>
+    <origin xyz="0 0.119401 0.119401"/>
+  </joint>
+
+  <joint name="L3_to_L4" type="revolute">
+    <axis xyz="1 0 0"/>
+    <limit effort="1000.0" lower="-2.1" upper="2.1" velocity="0.5"/>
+    <parent link="l3_link"/>
+    <child link="l4_link"/>
+    <origin xyz="0 0.090485 0.090455"/>
+  </joint>
+  
+  <joint name="L4_to_L5_1_A" type="revolute">
+    <axis xyz="0 0 1"/>
+    <limit effort="1000.0" lower="-1.57" upper="0" velocity="0.5"/>
+    <parent link="l4_link"/>
+    <child link="l5_1_A_link"/>
+    <origin xyz="0.003489 0.0601 0.033148" rpy="0.785 0 0"/>
+  </joint>
+
+  <joint name="L4_to_L5_1_B" type="revolute">
+    <axis xyz="0 0 1"/>
+    <limit effort="1000.0" lower="-1.57" upper="1.57" velocity="0.5"/>
+    <parent link="l4_link"/>
+    <child link="l5_1_B_link"/>
+    <origin xyz="0.024489 0.0601 0.033148" rpy="0.785 0 0"/>
+    <mimic joint="L4_to_L5_1_A" multiplier="-1" offset="0"/>
+  </joint>
+
+  <joint name="L4_to_L5_2_A" type="revolute">
+    <axis xyz="0 0 1"/>
+    <limit effort="1000.0" lower="-1.57" upper="1.57" velocity="0.5"/>
+    <parent link="l4_link"/>
+    <child link="l5_2_A_link"/>
+    <origin xyz="-0.017511 0.028905 0.034644" rpy="0.785 0 0"/>
+    <mimic joint="L4_to_L5_1_A" multiplier="1" offset="0"/>
+  </joint>
+
+  <joint name="L4_to_L5_2_B" type="revolute">
+    <axis xyz="0 0 1"/>
+    <limit effort="1000.0" lower="-1.57" upper="1.57" velocity="0.5"/>
+    <parent link="l4_link"/>
+    <child link="l5_2_B_link"/>
+    <origin xyz="0.045489 0.028905 0.034644" rpy="0.785 0 0"/>
+    <mimic joint="L4_to_L5_1_A" multiplier="-1" offset="0"/>
+  </joint>
+
+  <joint name="L5_1_A_to_L5_3_A" type="revolute">
+    <axis xyz="0 0 1"/>
+    <limit effort="1000.0" lower="-1.57" upper="0" velocity="0.5"/>
+    <parent link="l5_1_A_link"/>
+    <child link="l5_3_A_link"/>
+    <origin xyz="-0.0432 0 -0.008" rpy="0 0 0"/>
+    <mimic joint="L4_to_L5_1_A" multiplier="-1" offset="0"/>
+  </joint>
+  
+  <joint name="L5_1_B_to_L5_3_B" type="revolute">
+    <axis xyz="0 0 1"/>
+    <limit effort="1000.0" lower="-1.57" upper="0" velocity="0.5"/>
+    <parent link="l5_1_B_link"/>
+    <child link="l5_3_B_link"/>
+    <origin xyz="0.0432 0 -0.008" rpy="0 0 0"/>
+    <mimic joint="L4_to_L5_1_B" multiplier="-1" offset="0"/>
+  </joint>
+  
+</robot>
